@@ -7,6 +7,8 @@ target 'easySimulator' do
 
   # Pods for easySimulator
   pod 'SwiftLint'
+  pod 'IQKeyboardManagerSwift', '~> 5.0'
+  pod 'SwiftMaskText'
 
   target 'easySimulatorTests' do
     inherit! :search_paths

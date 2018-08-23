@@ -11,10 +11,13 @@
 //
 
 import UIKit
+import Foundation
 
 protocol SimulatorInputDisplayLogic: class
 {
     func displaySimulationResult(viewModel: SimulatorInput.Simulation.ViewModel)
+    func displayFormattedMaturityDate(viewModel: SimulatorInput.FormatMaturityDate.ViewModel)
+    func displayFormattedNumericField(viewModel: SimulatorInput.FormatNumericField.ViewModel)
 }
 
 class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
@@ -36,7 +39,7 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
         setup()
     }
     
-    // MARK: Setup
+    // MARK: - Setup
     
     private func setup()
     {
@@ -52,7 +55,7 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
         router.dataStore = interactor
     }
     
-    // MARK: Routing
+    // MARK: - Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -64,39 +67,98 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
         }
     }
     
-    // MARK: View lifecycle
+    // MARK: - View lifecycle
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        maturityDateTextField.inputView = maturityDatePicker
+        investedAmountTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        rateTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+     
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
+    // MARK: - Outlets and Actions
     @IBOutlet weak var investedAmountTextField: UITextField!
     @IBOutlet weak var maturityDateTextField: UITextField!
     @IBOutlet weak var rateTextField: UITextField!
     @IBOutlet weak var simulatingActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet var maturityDatePicker: UIDatePicker!
     
-    @IBAction func requestSimulation(_ sender: Any) {
-        simulate()
+    @IBAction func maturityDateValueChanged(_ sender: Any) {
+        let request  = SimulatorInput.FormatMaturityDate.Request(maturityDate: maturityDatePicker.date)
+        interactor?.formatMaturityDate(request: request)
     }
     
-    func simulate()
-    {
-        //TODO - Remover os dados fixos e substituir pelos captados no form
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        guard let someDateTime = formatter.date(from: "2022/10/08") else { return }
+    @objc func textFieldDidChange(_ textField: UITextField) {
         
-        let request = SimulatorInput.Simulation.Request(investedAmount: 100.0, rate: 123, maturityDate: someDateTime)
+        if textField == investedAmountTextField {
+            let request = SimulatorInput.FormatNumericField.Request(value: textField.text!, fieldType: .amount(textField.tag))
+            interactor?.formatNumericField(request: request)
+        }else if textField == rateTextField {
+            let request = SimulatorInput.FormatNumericField.Request(value: textField.text!, fieldType: .rate(textField.tag))
+            interactor?.formatNumericField(request: request)
+        }
+    }
+    
+    @IBAction func requestSimulation(_ sender: Any) {
+        
+        let investedAmount = investedAmountTextField.text ?? "0"
+        let maturityDate = maturityDatePicker.date
+        let rate = rateTextField.text ?? "0"
+        
+        let request = SimulatorInput.Simulation.Request(investedAmount: investedAmount, rate: rate, maturityDate: maturityDate)
         interactor?.simulate(request: request)
         simulatingActivityIndicator.startAnimating()
     }
     
+    //MARK: - SimulatorInputDisplayLogic
     func displaySimulationResult(viewModel: SimulatorInput.Simulation.ViewModel)
     {
-        simulatingActivityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+            self.simulatingActivityIndicator.stopAnimating()
+        }
+        
+        if !viewModel.success {
+            let alert = UIAlertController(title: "Atenção", message: "Erro ao tentar simular rendimento.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }else{
+            //TODO - Fazer routing para próxima scene
+        }
+    }
+    
+    func displayFormattedMaturityDate(viewModel: SimulatorInput.FormatMaturityDate.ViewModel) {
+        
+        maturityDateTextField.text = viewModel.formatedMaturityDate
+    }
+    
+    func displayFormattedNumericField(viewModel: SimulatorInput.FormatNumericField.ViewModel) {
+        
+        let tag = viewModel.tag
+        let text = viewModel.formatedValue
+        
+        if let textField = view.viewWithTag(tag) as? UITextField{
+            textField.text = text
+        }
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension SimulatorInputViewController:UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     
+        let  char = string.cString(using: String.Encoding.utf8)!
+        let isBackSpace = (strcmp(char, "\\b") == -92)
+        
+        if textField == investedAmountTextField && textField.text!.count >= 13 && !isBackSpace {
+            return false
+        }else if textField == rateTextField && textField.text!.count >= 3 && !isBackSpace {
+            return false
+        }
+        
+        return true
     }
 }

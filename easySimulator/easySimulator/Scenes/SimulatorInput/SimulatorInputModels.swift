@@ -16,22 +16,62 @@ enum SimulatorInput
 {
   // MARK: Use cases
   
-  enum Simulation
-  {
-    struct Request
+    enum Simulation
     {
-        var investedAmount:Double
-        var rate:Int
-        var maturityDate:Date
+        struct Request
+        {
+            var investedAmount:String
+            var rate:String
+            var maturityDate:Date
+        }
+        struct Response
+        {
+            var result:SimulationResult?
+            var error:Error?
+        }
+        struct ViewModel
+        {
+            var success:Bool
+        }
     }
-    struct Response
+    
+    enum FormatMaturityDate
     {
-        var result:SimulationResult?
-        var error:Error?
+        struct Request
+        {
+            var maturityDate:Date
+        }
+        struct Response
+        {
+            var maturityDate:Date
+        }
+        struct ViewModel
+        {
+            var formatedMaturityDate:String
+        }
     }
-    struct ViewModel
+    
+    enum FormatNumericField
     {
-        var success:Bool
+        enum NumericFieldTypes{
+            case amount(Int)
+            case rate(Int)
+        }
+        
+        struct Request
+        {
+            var value:String
+            var fieldType:NumericFieldTypes
+        }
+        struct Response
+        {
+            var value:String
+            var fieldType:NumericFieldTypes
+        }
+        struct ViewModel
+        {
+            var formatedValue:String
+            var tag:Int
+        }
     }
-  }
 }
