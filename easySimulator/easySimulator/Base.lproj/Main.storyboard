@@ -1,21 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Simulator Input View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SimulatorInputViewController" customModule="easySimulator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quanto você gostaria de aplicar? *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRL-mT-a17">
+                                <rect key="frame" x="56" y="79" width="263" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="c4J-ew-bWS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual a data de vencimento do investimento? *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClU-Wz-lKN">
+                                <rect key="frame" x="12.5" y="207" width="350" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="P1Q-9Y-1ty"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual o percentual do CDI do investimento? *" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wr-ML-QhK">
+                                <rect key="frame" x="18" y="331" width="338" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3ih-vm-Z2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GX9-Wv-kjY">
+                                <rect key="frame" x="118" y="108" width="139" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="j3q-WA-HUF"/>
+                                    <constraint firstAttribute="width" constant="139" id="nho-vk-DdB"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BIj-T5-2xe">
+                                <rect key="frame" x="118" y="236" width="139" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OXd-20-kQn"/>
+                                    <constraint firstAttribute="width" constant="139" id="hHT-8u-SDG"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MbD-xj-RIE">
+                                <rect key="frame" x="118" y="371" width="139" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aA3-h3-kOm"/>
+                                    <constraint firstAttribute="width" constant="139" id="drs-BL-tTd"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dg-ln-BIb">
+                                <rect key="frame" x="20" y="553" width="335" height="94"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="94" id="9Br-Kk-6vB"/>
+                                </constraints>
+                                <state key="normal" title="Simular">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestSimulation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IKV-tn-fFj"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QHd-vs-RrY">
+                                <rect key="frame" x="177" y="482" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ClU-Wz-lKN" firstAttribute="top" secondItem="GX9-Wv-kjY" secondAttribute="bottom" constant="49" id="0SH-QS-qr3"/>
+                            <constraint firstItem="7Wr-ML-QhK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1kr-UI-oTT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9dg-ln-BIb" secondAttribute="trailing" constant="20" id="2ZK-Pa-XGx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9dg-ln-BIb" secondAttribute="bottom" constant="20" id="3yA-Mi-eYj"/>
+                            <constraint firstItem="MbD-xj-RIE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Fw-1B-fvh"/>
+                            <constraint firstItem="7Wr-ML-QhK" firstAttribute="top" secondItem="BIj-T5-2xe" secondAttribute="bottom" constant="45" id="7bq-Xu-rwu"/>
+                            <constraint firstItem="VRL-mT-a17" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8eC-hI-y2E"/>
+                            <constraint firstItem="GX9-Wv-kjY" firstAttribute="top" secondItem="VRL-mT-a17" secondAttribute="bottom" constant="8" id="BQ3-6D-9Yj"/>
+                            <constraint firstItem="VRL-mT-a17" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="59" id="IJ4-66-o40"/>
+                            <constraint firstItem="BIj-T5-2xe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IRd-Z1-gzl"/>
+                            <constraint firstItem="GX9-Wv-kjY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oe7-fJ-Dnk"/>
+                            <constraint firstItem="BIj-T5-2xe" firstAttribute="top" secondItem="ClU-Wz-lKN" secondAttribute="bottom" constant="8" id="czO-CX-yq0"/>
+                            <constraint firstItem="9dg-ln-BIb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="f0U-3A-01n"/>
+                            <constraint firstItem="QHd-vs-RrY" firstAttribute="top" secondItem="MbD-xj-RIE" secondAttribute="bottom" constant="61" id="j7A-HT-eUC"/>
+                            <constraint firstItem="QHd-vs-RrY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kpx-pe-6hw"/>
+                            <constraint firstItem="ClU-Wz-lKN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mm6-uK-6Wf"/>
+                            <constraint firstItem="MbD-xj-RIE" firstAttribute="top" secondItem="7Wr-ML-QhK" secondAttribute="bottom" constant="19" id="u7p-M2-MWu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="investedAmountTextField" destination="GX9-Wv-kjY" id="hDz-un-Aul"/>
+                        <outlet property="maturityDateTextField" destination="BIj-T5-2xe" id="yE9-uE-JQF"/>
+                        <outlet property="rateTextField" destination="MbD-xj-RIE" id="BPx-Lf-yvs"/>
+                        <outlet property="simulatingActivityIndicator" destination="QHd-vs-RrY" id="LgS-dF-9Wk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
