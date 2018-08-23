@@ -62,7 +62,7 @@ class SimulatorResultPresenter: SimulatorResultPresentationLogic
             //% Rentabilidade bruta mensal
             let monthlyGrossRateProfit:String =  String(format: "%.2f%%", simulationResult.monthlyGrossRateProfit)
             //% Percentual do CDI
-            let rate:String = String(format: "%.2f%%", simulationResult.investmentParameter.rate)
+            let rate:String = String(format: "%ld%%", simulationResult.investmentParameter.rate)
             //% Rentabilidade bruta anual
             let annualGrossRateProfit:String = String(format: "%.2f%%", simulationResult.annualGrossRateProfit)
             //% Rentabilidade no período

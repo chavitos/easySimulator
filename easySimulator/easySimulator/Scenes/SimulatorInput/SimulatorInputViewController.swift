@@ -55,6 +55,15 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
         router.dataStore = interactor
     }
     
+    private func clearInputData(){
+        DispatchQueue.main.async {
+            self.investedAmountTextField.text = ""
+            self.rateTextField.text = ""
+            self.maturityDatePicker.date = Date()
+            self.maturityDateTextField.text = ""
+        }
+    }
+    
     // MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -74,7 +83,11 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
         maturityDateTextField.inputView = maturityDatePicker
         investedAmountTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         rateTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearInputData()
     }
     
     // MARK: - Outlets and Actions
@@ -109,9 +122,7 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
         let request = SimulatorInput.Simulation.Request(investedAmount: investedAmount, rate: rate, maturityDate: maturityDate)
         interactor?.simulate(request: request)
         
-        DispatchQueue.main.async {
-            self.simulatingActivityIndicator.startAnimating()
-        }
+        self.simulatingActivityIndicator.startAnimating()
     }
     
     //MARK: - SimulatorInputDisplayLogic
@@ -119,30 +130,34 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
     {
         DispatchQueue.main.async {
             self.simulatingActivityIndicator.stopAnimating()
-        }
-        
-        if !viewModel.success {
-            let alert = UIAlertController(title: "Atenção", message: "Erro ao tentar simular rendimento.", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
-        }else{
-            self.performSegue(withIdentifier: "SimulatorResult", sender: nil)
+            
+            if !viewModel.success {
+                let alert = UIAlertController(title: "Atenção", message: "Erro ao tentar simular rendimento.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                self.performSegue(withIdentifier: "SimulatorResult", sender: nil)
+            }
         }
     }
     
     func displayFormattedMaturityDate(viewModel: SimulatorInput.FormatMaturityDate.ViewModel) {
         
-        maturityDateTextField.text = viewModel.formatedMaturityDate
+        DispatchQueue.main.async {
+            self.maturityDateTextField.text = viewModel.formatedMaturityDate
+        }
     }
     
     func displayFormattedNumericField(viewModel: SimulatorInput.FormatNumericField.ViewModel) {
         
-        let tag = viewModel.tag
-        let text = viewModel.formatedValue
-        
-        if let textField = view.viewWithTag(tag) as? UITextField{
-            textField.text = text
+        DispatchQueue.main.async {
+            let tag = viewModel.tag
+            let text = viewModel.formatedValue
+            
+            if let textField = self.view.viewWithTag(tag) as? UITextField{
+                textField.text = text
+            }
         }
     }
 }

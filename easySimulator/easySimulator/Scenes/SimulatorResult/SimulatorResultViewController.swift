@@ -96,7 +96,7 @@ class SimulatorResultViewController: UIViewController, SimulatorResultDisplayLog
     
     @IBAction func startNewSimulation(_ sender: UIButton) {
         
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Display Simulation Result
