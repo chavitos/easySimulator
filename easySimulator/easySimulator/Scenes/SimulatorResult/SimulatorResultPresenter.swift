@@ -36,8 +36,11 @@ class SimulatorResultPresenter: SimulatorResultPresentationLogic
         
         DispatchQueue.global(qos: .background).async {
             
-            let currencyFormatter = NumberFormatter().getCurrencyFormatter()
-            //        let dateFormatter = DateFormatter().getDateFormatter(withFormat: "dd/MM/yyyy")
+            let currencyFormatter    = NumberFormatter().getCurrencyFormatter()
+            let dateFormatterService = DateFormatter().getDateFormatter(withFormat: "yyyy-MM-dd'T'HH:mm:ss")
+            let dateFormatterUser    = DateFormatter().getDateFormatter(withFormat: "dd/MM/yyyy")
+            
+            let date = dateFormatterService.date(from: simulationResult.investmentParameter.maturityDate)
             
             //R$ Valor aplicado inicialmente
             let investedAmount:String = currencyFormatter.string(from: NSNumber(value:simulationResult.investmentParameter.investedAmount)) ?? "R$ 0,00"
@@ -53,7 +56,7 @@ class SimulatorResultPresenter: SimulatorResultPresentationLogic
             let netAmount:String = currencyFormatter.string(from: NSNumber(value: simulationResult.netAmount)) ?? "R$ 0,00"
             
             //Data de vencimento
-            let maturityDate:String = simulationResult.investmentParameter.maturityDate
+            let maturityDate:String = dateFormatterUser.string(from: date!)
             // Dias corridos
             let maturityTotalDays:String = "\(simulationResult.investmentParameter.maturityTotalDays)"
             //% Rentabilidade bruta mensal
