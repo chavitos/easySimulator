@@ -36,5 +36,5 @@ protocol SimulatorInputWorkerProtocol {
 }
 
 enum SimulationError: Error {
-    case CannotSimulate(String)
+    case cannotSimulate(String)
 }

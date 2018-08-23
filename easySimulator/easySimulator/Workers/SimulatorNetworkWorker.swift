@@ -44,14 +44,14 @@ class SimulatorNetworkWorker:SimulatorInputWorkerProtocol {
                     completionHandler{ return responseModel }
                     
                 } catch let error as NSError? {
-                    completionHandler{ throw SimulationError.CannotSimulate("CannotSimulate \(String(describing: error)), \(String(describing: error?.userInfo))") }
+                    completionHandler{ throw SimulationError.cannotSimulate("CannotSimulate \(String(describing: error)), \(String(describing: error?.userInfo))") }
                 }
                 break
             case .fail(let serviceError):
                 if let error = serviceError {
                     completionHandler { throw error }
                 }
-                completionHandler { throw SimulationError.CannotSimulate("CannotSimulate") }
+                completionHandler { throw SimulationError.cannotSimulate("CannotSimulate") }
                 break
             }
         }

@@ -40,7 +40,7 @@ class SimulatorInputInteractor: SimulatorInputBusinessLogic, SimulatorInputDataS
         guard let investedAmount = formatter.number(from: request.investedAmount)?.doubleValue,
             let rate = Int(request.rate) else{
                 
-                let response = SimulatorInput.Simulation.Response(result: nil, error: SimulationError.CannotSimulate("CannotSimulate"))
+                let response = SimulatorInput.Simulation.Response(result: nil, error: SimulationError.cannotSimulate("CannotSimulate"))
                 self.presenter?.presentSimulationResult(response: response)
                 return
         }
