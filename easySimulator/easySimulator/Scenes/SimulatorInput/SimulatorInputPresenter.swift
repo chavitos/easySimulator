@@ -33,8 +33,7 @@ class SimulatorInputPresenter: SimulatorInputPresentationLogic
     
     func presentFormatedMaturityDate(response: SimulatorInput.FormatMaturityDate.Response) {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        let dateFormatter = DateFormatter().getDateFormatter(withFormat: "dd/MM/yyyy")
         let date = dateFormatter.string(from: response.maturityDate)
         let viewModel = SimulatorInput.FormatMaturityDate.ViewModel(formatedMaturityDate: date)
         
@@ -45,11 +44,11 @@ class SimulatorInputPresenter: SimulatorInputPresentationLogic
         switch response.fieldType {
         case .amount(let tag):
             
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currencyAccounting
-            formatter.locale = Locale(identifier: "pt_BR")
-            formatter.maximumFractionDigits = 2
-            formatter.minimumFractionDigits = 2
+            let formatter = NumberFormatter().getCurrencyFormatter()
+//            formatter.numberStyle = .currencyAccounting
+//            formatter.locale = Locale(identifier: "pt_BR")
+//            formatter.maximumFractionDigits = 2
+//            formatter.minimumFractionDigits = 2
             
             var amountWithPrefix = response.value
             

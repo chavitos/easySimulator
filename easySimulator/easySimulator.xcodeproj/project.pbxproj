@@ -27,6 +27,17 @@
 		E9E6D5DC212E096F003C4DF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D5DA212E096F003C4DF6 /* LaunchScreen.storyboard */; };
 		E9E6D5E7212E096F003C4DF6 /* easySimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D5E6212E096F003C4DF6 /* easySimulatorTests.swift */; };
 		E9E6D5F2212E096F003C4DF6 /* easySimulatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D5F1212E096F003C4DF6 /* easySimulatorUITests.swift */; };
+		E9E6D614212F2B55003C4DF6 /* SimulatorResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D60E212F2B55003C4DF6 /* SimulatorResultPresenter.swift */; };
+		E9E6D615212F2B55003C4DF6 /* SimulatorResultWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D60F212F2B55003C4DF6 /* SimulatorResultWorker.swift */; };
+		E9E6D616212F2B55003C4DF6 /* SimulatorResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D610212F2B55003C4DF6 /* SimulatorResultRouter.swift */; };
+		E9E6D617212F2B55003C4DF6 /* SimulatorResultModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D611212F2B55003C4DF6 /* SimulatorResultModels.swift */; };
+		E9E6D618212F2B55003C4DF6 /* SimulatorResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D612212F2B55003C4DF6 /* SimulatorResultViewController.swift */; };
+		E9E6D619212F2B55003C4DF6 /* SimulatorResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D613212F2B55003C4DF6 /* SimulatorResultInteractor.swift */; };
+		E9E6D61C212F469C003C4DF6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D61B212F469C003C4DF6 /* Extensions.swift */; };
+		E9E6D621212F4D3E003C4DF6 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D61D212F4D3E003C4DF6 /* Roboto-Medium.ttf */; };
+		E9E6D622212F4D3E003C4DF6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D61E212F4D3E003C4DF6 /* Roboto-Thin.ttf */; };
+		E9E6D623212F4D3E003C4DF6 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D61F212F4D3E003C4DF6 /* Roboto-Bold.ttf */; };
+		E9E6D624212F4D3E003C4DF6 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D620212F4D3E003C4DF6 /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +89,17 @@
 		E9E6D5ED212E096F003C4DF6 /* easySimulatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = easySimulatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E6D5F1212E096F003C4DF6 /* easySimulatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easySimulatorUITests.swift; sourceTree = "<group>"; };
 		E9E6D5F3212E096F003C4DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9E6D60E212F2B55003C4DF6 /* SimulatorResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultPresenter.swift; sourceTree = "<group>"; };
+		E9E6D60F212F2B55003C4DF6 /* SimulatorResultWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultWorker.swift; sourceTree = "<group>"; };
+		E9E6D610212F2B55003C4DF6 /* SimulatorResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultRouter.swift; sourceTree = "<group>"; };
+		E9E6D611212F2B55003C4DF6 /* SimulatorResultModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultModels.swift; sourceTree = "<group>"; };
+		E9E6D612212F2B55003C4DF6 /* SimulatorResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultViewController.swift; sourceTree = "<group>"; };
+		E9E6D613212F2B55003C4DF6 /* SimulatorResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultInteractor.swift; sourceTree = "<group>"; };
+		E9E6D61B212F469C003C4DF6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E9E6D61D212F4D3E003C4DF6 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		E9E6D61E212F4D3E003C4DF6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		E9E6D61F212F4D3E003C4DF6 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		E9E6D620212F4D3E003C4DF6 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		F68DAA7EE158FF996B267336 /* Pods-easySimulatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-easySimulatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-easySimulatorTests/Pods-easySimulatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,13 +140,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9219A4EB212E5330002DF50C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		9219A4EC212E533B002DF50C /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,16 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				9219A4EF212E5359002DF50C /* SimulatorInput */,
-				9219A4EE212E5357002DF50C /* SimulatorResult */,
+				E9E6D60D212F2B35003C4DF6 /* SimulatorResult */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		9219A4EE212E5357002DF50C /* SimulatorResult */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SimulatorResult;
 			sourceTree = "<group>";
 		};
 		9219A4EF212E5359002DF50C /* SimulatorInput */ = {
@@ -173,6 +181,10 @@
 		9219A505212EA86D002DF50C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E9E6D61F212F4D3E003C4DF6 /* Roboto-Bold.ttf */,
+				E9E6D61D212F4D3E003C4DF6 /* Roboto-Medium.ttf */,
+				E9E6D620212F4D3E003C4DF6 /* Roboto-Regular.ttf */,
+				E9E6D61E212F4D3E003C4DF6 /* Roboto-Thin.ttf */,
 				9219A506212EA8D6002DF50C /* Roboto-Light.ttf */,
 				E9E6D5D8212E096F003C4DF6 /* Assets.xcassets */,
 			);
@@ -227,14 +239,14 @@
 		E9E6D5D0212E096E003C4DF6 /* easySimulator */ = {
 			isa = PBXGroup;
 			children = (
-				E9E6D5DD212E096F003C4DF6 /* Info.plist */,
+				E9E6D61A212F466D003C4DF6 /* Common */,
 				9219A505212EA86D002DF50C /* Resources */,
 				9219A4FC212E5B9C002DF50C /* Managers */,
 				9219A4ED212E5345002DF50C /* Scenes */,
 				9219A4EC212E533B002DF50C /* Workers */,
-				9219A4EB212E5330002DF50C /* Services */,
 				9219A4E7212E531D002DF50C /* Models */,
 				E9E6D5D1212E096E003C4DF6 /* AppDelegate.swift */,
+				E9E6D5DD212E096F003C4DF6 /* Info.plist */,
 				E9E6D5D5212E096E003C4DF6 /* Main.storyboard */,
 				E9E6D5DA212E096F003C4DF6 /* LaunchScreen.storyboard */,
 			);
@@ -257,6 +269,27 @@
 				E9E6D5F3212E096F003C4DF6 /* Info.plist */,
 			);
 			path = easySimulatorUITests;
+			sourceTree = "<group>";
+		};
+		E9E6D60D212F2B35003C4DF6 /* SimulatorResult */ = {
+			isa = PBXGroup;
+			children = (
+				E9E6D612212F2B55003C4DF6 /* SimulatorResultViewController.swift */,
+				E9E6D613212F2B55003C4DF6 /* SimulatorResultInteractor.swift */,
+				E9E6D60F212F2B55003C4DF6 /* SimulatorResultWorker.swift */,
+				E9E6D60E212F2B55003C4DF6 /* SimulatorResultPresenter.swift */,
+				E9E6D610212F2B55003C4DF6 /* SimulatorResultRouter.swift */,
+				E9E6D611212F2B55003C4DF6 /* SimulatorResultModels.swift */,
+			);
+			path = SimulatorResult;
+			sourceTree = "<group>";
+		};
+		E9E6D61A212F466D003C4DF6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E9E6D61B212F469C003C4DF6 /* Extensions.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,7 +400,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9E6D623212F4D3E003C4DF6 /* Roboto-Bold.ttf in Resources */,
+				E9E6D621212F4D3E003C4DF6 /* Roboto-Medium.ttf in Resources */,
+				E9E6D624212F4D3E003C4DF6 /* Roboto-Regular.ttf in Resources */,
 				E9E6D5DC212E096F003C4DF6 /* LaunchScreen.storyboard in Resources */,
+				E9E6D622212F4D3E003C4DF6 /* Roboto-Thin.ttf in Resources */,
 				E9E6D5D9212E096F003C4DF6 /* Assets.xcassets in Resources */,
 				9219A507212EA8D6002DF50C /* Roboto-Light.ttf in Resources */,
 				E9E6D5D7212E096E003C4DF6 /* Main.storyboard in Resources */,
@@ -473,13 +510,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9219A4F6212E5402002DF50C /* SimulatorInputPresenter.swift in Sources */,
+				E9E6D61C212F469C003C4DF6 /* Extensions.swift in Sources */,
 				9219A4FA212E5402002DF50C /* SimulatorInputViewController.swift in Sources */,
 				E9E6D5D2212E096E003C4DF6 /* AppDelegate.swift in Sources */,
 				9219A4FB212E5402002DF50C /* SimulatorInputInteractor.swift in Sources */,
 				9219A502212E5F17002DF50C /* NetwrokManager.swift in Sources */,
 				9219A4F8212E5402002DF50C /* SimulatorInputRouter.swift in Sources */,
 				9219A4FE212E5BD6002DF50C /* SimulationResult.swift in Sources */,
+				E9E6D617212F2B55003C4DF6 /* SimulatorResultModels.swift in Sources */,
+				E9E6D619212F2B55003C4DF6 /* SimulatorResultInteractor.swift in Sources */,
 				9219A504212E67D5002DF50C /* SimulatorNetworkWorker.swift in Sources */,
+				E9E6D614212F2B55003C4DF6 /* SimulatorResultPresenter.swift in Sources */,
+				E9E6D615212F2B55003C4DF6 /* SimulatorResultWorker.swift in Sources */,
+				E9E6D616212F2B55003C4DF6 /* SimulatorResultRouter.swift in Sources */,
+				E9E6D618212F2B55003C4DF6 /* SimulatorResultViewController.swift in Sources */,
 				9219A500212E5C29002DF50C /* SimulationInput.swift in Sources */,
 				9219A4F7212E5402002DF50C /* SimulatorInputWorker.swift in Sources */,
 				9219A4F9212E5402002DF50C /* SimulatorInputModels.swift in Sources */,

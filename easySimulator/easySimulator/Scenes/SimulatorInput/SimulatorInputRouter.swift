@@ -14,47 +14,47 @@ import UIKit
 
 @objc protocol SimulatorInputRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSimulatorResult(segue: UIStoryboardSegue?)
 }
 
 protocol SimulatorInputDataPassing
 {
-  var dataStore: SimulatorInputDataStore? { get }
+    var dataStore: SimulatorInputDataStore? { get }
 }
 
 class SimulatorInputRouter: NSObject, SimulatorInputRoutingLogic, SimulatorInputDataPassing
 {
-  weak var viewController: SimulatorInputViewController?
-  var dataStore: SimulatorInputDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: SimulatorInputViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: SimulatorInputDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    weak var viewController: SimulatorInputViewController?
+    var dataStore: SimulatorInputDataStore?
+    
+    // MARK: Routing
+    
+    func routeToSimulatorResult(segue: UIStoryboardSegue?)
+    {
+        if let segue = segue {
+            let destinationVC = segue.destination as! SimulatorResultViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToSimulatorResult(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SimulatorResultViewController") as! SimulatorResultViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToSimulatorResult(source: dataStore!, destination: &destinationDS)
+            navigateToSimulatorResult(source: viewController!, destination: destinationVC)
+        }
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToSimulatorResult(source: SimulatorInputViewController, destination: SimulatorResultViewController)
+    {
+      source.show(destination, sender: nil)
+    }
+    
+    // MARK: Passing data
+    
+    func passDataToSimulatorResult(source: SimulatorInputDataStore, destination: inout SimulatorResultDataStore)
+    {
+        destination.simulationResult = source.simulationResult
+    }
 }

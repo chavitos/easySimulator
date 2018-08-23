@@ -21,14 +21,14 @@ protocol SimulatorInputBusinessLogic
 
 protocol SimulatorInputDataStore
 {
-    //var name: String { get set }
+    var simulationResult: SimulationResult? { get set }
 }
 
 class SimulatorInputInteractor: SimulatorInputBusinessLogic, SimulatorInputDataStore
 {
+    var simulationResult: SimulationResult?
     var presenter: SimulatorInputPresentationLogic?
     var worker: SimulatorInputWorker?
-    //var name: String = ""
     
     // MARK: Do something
     
@@ -49,6 +49,7 @@ class SimulatorInputInteractor: SimulatorInputBusinessLogic, SimulatorInputDataS
             let response:SimulatorInput.Simulation.Response
             
             if let result = simulationResult {
+                self.simulationResult = result
                 response = SimulatorInput.Simulation.Response(result: result, error: nil)
             }else{
                 response = SimulatorInput.Simulation.Response(result: nil, error: error)

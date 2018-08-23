@@ -56,7 +56,6 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
     }
     
     // MARK: - Routing
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let scene = segue.identifier {
@@ -125,7 +124,7 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }else{
-            //TODO - Fazer routing para próxima scene
+            self.performSegue(withIdentifier: "SimulatorResult", sender: nil)
         }
     }
     
