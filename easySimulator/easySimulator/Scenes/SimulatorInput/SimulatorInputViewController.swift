@@ -108,7 +108,10 @@ class SimulatorInputViewController: UIViewController, SimulatorInputDisplayLogic
         
         let request = SimulatorInput.Simulation.Request(investedAmount: investedAmount, rate: rate, maturityDate: maturityDate)
         interactor?.simulate(request: request)
-        simulatingActivityIndicator.startAnimating()
+        
+        DispatchQueue.main.async {
+            self.simulatingActivityIndicator.startAnimating()
+        }
     }
     
     //MARK: - SimulatorInputDisplayLogic

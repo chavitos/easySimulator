@@ -77,9 +77,50 @@ class SimulatorResultViewController: UIViewController, SimulatorResultDisplayLog
         interactor?.getSimulationResult()
     }
     
+    //MARK: - Outlets and Actions
+    @IBOutlet weak var grossAmountTitleLabel: UILabel!
+    @IBOutlet weak var grossAmountProfitTitleLabel: UILabel!
+    
+    @IBOutlet weak var investedAmountLabel: UILabel!
+    @IBOutlet weak var grossAmountLabel: UILabel!
+    @IBOutlet weak var grossAmountProfitLabel: UILabel!
+    @IBOutlet weak var taxesLabel: UILabel!
+    @IBOutlet weak var netAmountLabel: UILabel!
+    
+    @IBOutlet weak var maturityDateLabel: UILabel!
+    @IBOutlet weak var maturityTotalDaysLabel: UILabel!
+    @IBOutlet weak var monthlyGrossRateProfitLabel: UILabel!
+    @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var annualGrossRateProfitLabel: UILabel!
+    @IBOutlet weak var rateProfitLabel: UILabel!
+    
+    @IBAction func startNewSimulation(_ sender: UIButton) {
+        
+        
+    }
+    
     // MARK: - Display Simulation Result
     func displaySimulationResult(viewModel: SimulatorResult.GetSimulationResult.ViewModel)
     {
         
+        DispatchQueue.main.async {
+            let displayResult = viewModel.displayResult
+            
+            self.grossAmountTitleLabel.text = displayResult.grossAmount
+            self.grossAmountProfitTitleLabel.text = displayResult.grossAmountProfit
+            
+            self.investedAmountLabel.text = displayResult.investedAmount
+            self.grossAmountLabel.text = displayResult.grossAmount
+            self.grossAmountProfitLabel.text = displayResult.grossAmountProfit
+            self.taxesLabel.text = displayResult.taxesAmount + "(" + displayResult.taxesRate + ")"
+            self.netAmountLabel.text = displayResult.netAmount
+            
+            self.maturityDateLabel.text = displayResult.maturityDate
+            self.maturityTotalDaysLabel.text = displayResult.maturityTotalDays
+            self.monthlyGrossRateProfitLabel.text = displayResult.monthlyGrossRateProfit
+            self.rateLabel.text = displayResult.rate
+            self.annualGrossRateProfitLabel.text = displayResult.annualGrossRateProfit
+            self.rateProfitLabel.text = displayResult.rateProfit
+        }
     }
 }

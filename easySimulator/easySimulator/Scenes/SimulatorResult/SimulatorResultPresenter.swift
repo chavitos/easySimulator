@@ -26,56 +26,58 @@ class SimulatorResultPresenter: SimulatorResultPresentationLogic
     func presentSomething(response: SimulatorResult.GetSimulationResult.Response)
     {
         
-        let displayResult = getDisplaySimulationResult(ofSimulationResult: response.simulationResult)
-        let viewModel = SimulatorResult.GetSimulationResult.ViewModel(displayResult: displayResult)
-        viewController?.displaySimulationResult(viewModel: viewModel)
+        getDisplaySimulationResult(ofSimulationResult: response.simulationResult) { (displayResult) in
+            let viewModel = SimulatorResult.GetSimulationResult.ViewModel(displayResult: displayResult)
+            self.viewController?.displaySimulationResult(viewModel: viewModel)
+        }
     }
     
-    private func getDisplaySimulationResult(ofSimulationResult simulationResult:SimulationResult) -> DisplaySimulationResult {
+    private func getDisplaySimulationResult(ofSimulationResult simulationResult:SimulationResult, completionHandler:@escaping ((DisplaySimulationResult) -> Void)) {
         
-        let currencyFormatter = NumberFormatter().getCurrencyFormatter()
-        let percentFormatter = NumberFormatter().getPercentFormatter()
-//        let dateFormatter = DateFormatter().getDateFormatter(withFormat: "dd/MM/yyyy")
-        
-        //R$ Valor aplicado inicialmente
-        let investedAmount:String = currencyFormatter.string(from: NSNumber(value:simulationResult.investmentParameter.investedAmount)) ?? "R$ 0,00"
-        //R$ Valor bruto do investimento
-        let grossAmount:String = currencyFormatter.string(from: NSNumber(value:simulationResult.grossAmount)) ?? "R$ 0,00"
-        //R$ Valor do rendimento
-        let grossAmountProfit:String = currencyFormatter.string(from: NSNumber(value: simulationResult.grossAmountProfit)) ?? "R$ 0,00"
-        //R$ Valor do IR
-        let taxesAmount:String = currencyFormatter.string(from: NSNumber(value: simulationResult.taxesAmount)) ?? "R$ 0,00"
-        //% IR
-        let taxesRate:String = percentFormatter.string(from: NSNumber(value: simulationResult.taxesRate)) ?? "0,00%"
-        //R$ Valor líquido
-        let netAmount:String = currencyFormatter.string(from: NSNumber(value: simulationResult.netAmount)) ?? "R$ 0,00"
-
-        //Data de vencimento
-        let maturityDate:String = simulationResult.investmentParameter.maturityDate
-        // Dias corridos
-        let maturityTotalDays:String = "\(simulationResult.investmentParameter.maturityTotalDays)"
-        //% Rentabilidade bruta mensal
-        let monthlyGrossRateProfit:String = percentFormatter.string(from: NSNumber(value: simulationResult.monthlyGrossRateProfit)) ?? "0,00%"
-        //% Percentual do CDI
-        let rate:String = percentFormatter.string(from: NSNumber(value: simulationResult.investmentParameter.rate)) ?? "0,00%"
-        //% Rentabilidade bruta anual
-        let annualGrossRateProfit:String = percentFormatter.string(from: NSNumber(value: simulationResult.annualGrossRateProfit)) ?? "0,00%"
-        //% Rentabilidade no período
-        let rateProfit:String = percentFormatter.string(from: NSNumber(value: simulationResult.rateProfit)) ?? "0,00%"
-        
-        let displayResult = DisplaySimulationResult(investedAmount: investedAmount,
-                                                    grossAmount: grossAmount,
-                                                    grossAmountProfit: grossAmountProfit,
-                                                    taxesAmount: taxesAmount,
-                                                    taxesRate: taxesRate,
-                                                    netAmount: netAmount,
-                                                    maturityDate: maturityDate,
-                                                    maturityTotalDays: maturityTotalDays,
-                                                    monthlyGrossRateProfit: monthlyGrossRateProfit,
-                                                    rate: rate,
-                                                    annualGrossRateProfit: annualGrossRateProfit,
-                                                    rateProfit: rateProfit)
-        
-        return displayResult
+        DispatchQueue.global(qos: .background).async {
+            
+            let currencyFormatter = NumberFormatter().getCurrencyFormatter()
+            //        let dateFormatter = DateFormatter().getDateFormatter(withFormat: "dd/MM/yyyy")
+            
+            //R$ Valor aplicado inicialmente
+            let investedAmount:String = currencyFormatter.string(from: NSNumber(value:simulationResult.investmentParameter.investedAmount)) ?? "R$ 0,00"
+            //R$ Valor bruto do investimento
+            let grossAmount:String = currencyFormatter.string(from: NSNumber(value:simulationResult.grossAmount)) ?? "R$ 0,00"
+            //R$ Valor do rendimento
+            let grossAmountProfit:String = currencyFormatter.string(from: NSNumber(value: simulationResult.grossAmountProfit)) ?? "R$ 0,00"
+            //R$ Valor do IR
+            let taxesAmount:String = currencyFormatter.string(from: NSNumber(value: simulationResult.taxesAmount)) ?? "R$ 0,00"
+            //% IR
+            let taxesRate:String = String(format: "%.2f%%", simulationResult.taxesRate)
+            //R$ Valor líquido
+            let netAmount:String = currencyFormatter.string(from: NSNumber(value: simulationResult.netAmount)) ?? "R$ 0,00"
+            
+            //Data de vencimento
+            let maturityDate:String = simulationResult.investmentParameter.maturityDate
+            // Dias corridos
+            let maturityTotalDays:String = "\(simulationResult.investmentParameter.maturityTotalDays)"
+            //% Rentabilidade bruta mensal
+            let monthlyGrossRateProfit:String =  String(format: "%.2f%%", simulationResult.monthlyGrossRateProfit)
+            //% Percentual do CDI
+            let rate:String = String(format: "%.2f%%", simulationResult.investmentParameter.rate)
+            //% Rentabilidade bruta anual
+            let annualGrossRateProfit:String = String(format: "%.2f%%", simulationResult.annualGrossRateProfit)
+            //% Rentabilidade no período
+            let rateProfit:String = String(format: "%.2f%%", simulationResult.rateProfit)
+            
+            let displayResult = DisplaySimulationResult(investedAmount: investedAmount,
+                                                        grossAmount: grossAmount,
+                                                        grossAmountProfit: grossAmountProfit,
+                                                        taxesAmount: taxesAmount,
+                                                        taxesRate: taxesRate,
+                                                        netAmount: netAmount,
+                                                        maturityDate: maturityDate,
+                                                        maturityTotalDays: maturityTotalDays,
+                                                        monthlyGrossRateProfit: monthlyGrossRateProfit,
+                                                        rate: rate,
+                                                        annualGrossRateProfit: annualGrossRateProfit,
+                                                        rateProfit: rateProfit)
+            completionHandler(displayResult)
+        }
     }
 }

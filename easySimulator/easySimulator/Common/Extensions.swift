@@ -19,16 +19,6 @@ extension NumberFormatter {
         
         return self
     }
-    
-    func getPercentFormatter() -> NumberFormatter {
-        
-        self.numberStyle = .percent
-        self.locale = Locale(identifier: "pt_BR")
-        self.maximumFractionDigits = 2
-        self.minimumFractionDigits = 2
-        
-        return self
-    }
 }
 
 extension DateFormatter {

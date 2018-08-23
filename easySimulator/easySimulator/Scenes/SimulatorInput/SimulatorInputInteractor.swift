@@ -35,7 +35,9 @@ class SimulatorInputInteractor: SimulatorInputBusinessLogic, SimulatorInputDataS
     func simulate(request: SimulatorInput.Simulation.Request)
     {
         
-        guard let investedAmount = Double(request.investedAmount),
+        let formatter = NumberFormatter().getCurrencyFormatter()
+        
+        guard let investedAmount = formatter.number(from: request.investedAmount)?.doubleValue,
             let rate = Int(request.rate) else{
                 
                 let response = SimulatorInput.Simulation.Response(result: nil, error: SimulationError.CannotSimulate("CannotSimulate"))
