@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SimulationInput:Codable {
+struct SimulationInput:Codable,Equatable {
     
     let investedAmount:Double
     let yearlyInterestRate:Double
@@ -17,4 +17,14 @@ struct SimulationInput:Codable {
     let maturityDate:String
     let rate:Int
     let isTaxFree:Bool
+    
+    static func ==(lhs:SimulationInput, rhs:SimulationInput) -> Bool {
+        return lhs.investedAmount == rhs.investedAmount &&
+            lhs.yearlyInterestRate == rhs.yearlyInterestRate &&
+            lhs.maturityDate == rhs.maturityDate &&
+            lhs.maturityTotalDays == rhs.maturityTotalDays &&
+            lhs.maturityBusinessDays == rhs.maturityBusinessDays &&
+            lhs.rate == rhs.rate &&
+            lhs.isTaxFree == rhs.isTaxFree
+    }
 }

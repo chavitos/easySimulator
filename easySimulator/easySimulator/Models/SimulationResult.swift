@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SimulationResult:Codable {
+struct SimulationResult:Codable,Equatable {
     
     let grossAmount:Double
     let taxesAmount:Double
@@ -23,4 +23,19 @@ struct SimulationResult:Codable {
     let annualNetRateProfit:Double
     
     let investmentParameter:SimulationInput
+    
+    static func == (lhs: SimulationResult, rhs: SimulationResult) -> Bool {
+        return lhs.grossAmount == rhs.grossAmount &&
+            lhs.taxesRate == rhs.taxesAmount  &&
+            lhs.netAmount == rhs.netAmount &&
+            lhs.grossAmountProfit == rhs.grossAmountProfit &&
+            lhs.netAmountProfit == rhs.netAmountProfit &&
+            lhs.annualGrossRateProfit == rhs.annualGrossRateProfit &&
+            lhs.monthlyGrossRateProfit == rhs.monthlyGrossRateProfit &&
+            lhs.dailyGrossRateProfit == rhs.dailyGrossRateProfit &&
+            lhs.taxesRate == rhs.taxesRate &&
+            lhs.rateProfit == rhs.rateProfit &&
+            lhs.annualNetRateProfit == rhs.annualNetRateProfit &&
+            lhs.investmentParameter == rhs.investmentParameter
+    }
 }

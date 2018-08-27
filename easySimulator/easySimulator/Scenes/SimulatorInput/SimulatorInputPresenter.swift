@@ -45,10 +45,6 @@ class SimulatorInputPresenter: SimulatorInputPresentationLogic
         case .amount(let tag):
             
             let formatter = NumberFormatter().getCurrencyFormatter()
-//            formatter.numberStyle = .currencyAccounting
-//            formatter.locale = Locale(identifier: "pt_BR")
-//            formatter.maximumFractionDigits = 2
-//            formatter.minimumFractionDigits = 2
             
             var amountWithPrefix = response.value
             

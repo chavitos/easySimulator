@@ -20,12 +20,16 @@
 		9219A502212E5F17002DF50C /* NetwrokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9219A501212E5F17002DF50C /* NetwrokManager.swift */; };
 		9219A504212E67D5002DF50C /* SimulatorNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9219A503212E67D5002DF50C /* SimulatorNetworkWorker.swift */; };
 		9219A507212EA8D6002DF50C /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9219A506212EA8D6002DF50C /* Roboto-Light.ttf */; };
+		925C4CBB21335653000B6761 /* SimulatorInputViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CB721335653000B6761 /* SimulatorInputViewControllerTests.swift */; };
+		925C4CBC21335653000B6761 /* SimulatorInputInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CB821335653000B6761 /* SimulatorInputInteractorTests.swift */; };
+		925C4CBD21335653000B6761 /* SimulatorInputWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CB921335653000B6761 /* SimulatorInputWorkerTests.swift */; };
+		925C4CBE21335653000B6761 /* SimulatorInputPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CBA21335653000B6761 /* SimulatorInputPresenterTests.swift */; };
+		925C4CC021335EA7000B6761 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CBF21335EA7000B6761 /* Seeds.swift */; };
 		AE09356DCCFA55F5741DC223 /* Pods_easySimulatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75668A8CCE472A81F44F88C4 /* Pods_easySimulatorUITests.framework */; };
 		E9E6D5D2212E096E003C4DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D5D1212E096E003C4DF6 /* AppDelegate.swift */; };
 		E9E6D5D7212E096E003C4DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D5D5212E096E003C4DF6 /* Main.storyboard */; };
 		E9E6D5D9212E096F003C4DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D5D8212E096F003C4DF6 /* Assets.xcassets */; };
 		E9E6D5DC212E096F003C4DF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D5DA212E096F003C4DF6 /* LaunchScreen.storyboard */; };
-		E9E6D5E7212E096F003C4DF6 /* easySimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D5E6212E096F003C4DF6 /* easySimulatorTests.swift */; };
 		E9E6D5F2212E096F003C4DF6 /* easySimulatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D5F1212E096F003C4DF6 /* easySimulatorUITests.swift */; };
 		E9E6D614212F2B55003C4DF6 /* SimulatorResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D60E212F2B55003C4DF6 /* SimulatorResultPresenter.swift */; };
 		E9E6D615212F2B55003C4DF6 /* SimulatorResultWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D60F212F2B55003C4DF6 /* SimulatorResultWorker.swift */; };
@@ -74,6 +78,11 @@
 		9219A501212E5F17002DF50C /* NetwrokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwrokManager.swift; sourceTree = "<group>"; };
 		9219A503212E67D5002DF50C /* SimulatorNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorNetworkWorker.swift; sourceTree = "<group>"; };
 		9219A506212EA8D6002DF50C /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		925C4CB721335653000B6761 /* SimulatorInputViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorInputViewControllerTests.swift; sourceTree = "<group>"; };
+		925C4CB821335653000B6761 /* SimulatorInputInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorInputInteractorTests.swift; sourceTree = "<group>"; };
+		925C4CB921335653000B6761 /* SimulatorInputWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorInputWorkerTests.swift; sourceTree = "<group>"; };
+		925C4CBA21335653000B6761 /* SimulatorInputPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorInputPresenterTests.swift; sourceTree = "<group>"; };
+		925C4CBF21335EA7000B6761 /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 		B0F096CDD52A4146D1822C2A /* Pods-easySimulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-easySimulator.release.xcconfig"; path = "Pods/Target Support Files/Pods-easySimulator/Pods-easySimulator.release.xcconfig"; sourceTree = "<group>"; };
 		C3968B367A16BE42A549A4A5 /* Pods_easySimulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_easySimulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43FFD607A307D1B937DAC3B /* Pods_easySimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_easySimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +93,6 @@
 		E9E6D5DB212E096F003C4DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9E6D5DD212E096F003C4DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9E6D5E2212E096F003C4DF6 /* easySimulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = easySimulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9E6D5E6212E096F003C4DF6 /* easySimulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easySimulatorTests.swift; sourceTree = "<group>"; };
 		E9E6D5E8212E096F003C4DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9E6D5ED212E096F003C4DF6 /* easySimulatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = easySimulatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E6D5F1212E096F003C4DF6 /* easySimulatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easySimulatorUITests.swift; sourceTree = "<group>"; };
@@ -191,6 +199,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		925C4CB52133562F000B6761 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				925C4CB621335637000B6761 /* SimulatorInput */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		925C4CB621335637000B6761 /* SimulatorInput */ = {
+			isa = PBXGroup;
+			children = (
+				925C4CB721335653000B6761 /* SimulatorInputViewControllerTests.swift */,
+				925C4CB821335653000B6761 /* SimulatorInputInteractorTests.swift */,
+				925C4CB921335653000B6761 /* SimulatorInputWorkerTests.swift */,
+				925C4CBA21335653000B6761 /* SimulatorInputPresenterTests.swift */,
+			);
+			path = SimulatorInput;
+			sourceTree = "<group>";
+		};
 		A97657CBCDBFA0964C78E489 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,8 +283,9 @@
 		E9E6D5E5212E096F003C4DF6 /* easySimulatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				E9E6D5E6212E096F003C4DF6 /* easySimulatorTests.swift */,
+				925C4CB52133562F000B6761 /* Scenes */,
 				E9E6D5E8212E096F003C4DF6 /* Info.plist */,
+				925C4CBF21335EA7000B6761 /* Seeds.swift */,
 			);
 			path = easySimulatorTests;
 			sourceTree = "<group>";
@@ -490,12 +518,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-easySimulator/Pods-easySimulator-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMaskText/SwiftMaskText.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMaskText.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -534,7 +560,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9E6D5E7212E096F003C4DF6 /* easySimulatorTests.swift in Sources */,
+				925C4CBC21335653000B6761 /* SimulatorInputInteractorTests.swift in Sources */,
+				925C4CBB21335653000B6761 /* SimulatorInputViewControllerTests.swift in Sources */,
+				925C4CC021335EA7000B6761 /* Seeds.swift in Sources */,
+				925C4CBE21335653000B6761 /* SimulatorInputPresenterTests.swift in Sources */,
+				925C4CBD21335653000B6761 /* SimulatorInputWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,7 +28,7 @@ class SimulatorInputInteractor: SimulatorInputBusinessLogic, SimulatorInputDataS
 {
     var simulationResult: SimulationResult?
     var presenter: SimulatorInputPresentationLogic?
-    var worker: SimulatorInputWorker?
+    var worker: SimulatorInputWorker? = SimulatorInputWorker(SimulatorNetworkWorker())
     
     // MARK: Do something
     
@@ -45,7 +45,6 @@ class SimulatorInputInteractor: SimulatorInputBusinessLogic, SimulatorInputDataS
                 return
         }
         
-        worker = SimulatorInputWorker(SimulatorNetworkWorker())
         worker?.getSimulationResult(withInvestedAmount: investedAmount, rate: rate, andMaturityDate: request.maturityDate, completionHandler: { (simulationResult, error) in
             
             let response:SimulatorInput.Simulation.Response
