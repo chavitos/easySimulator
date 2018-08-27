@@ -88,6 +88,7 @@ class SimulatorResultPresenterTests: XCTestCase
         
         sut.getDisplaySimulationResult(ofSimulationResult: Seeds.SimulationResults.simulationResult) { (result) in
             
+            expect.fulfill()
             XCTAssertEqual(expectedGrossAmount, result.grossAmount, "gross amount should be format to string - \(expectedGrossAmount)")
             XCTAssertEqual(expectedTaxesAmount, result.taxesAmount, "taxes amount should be format to string - \(expectedTaxesAmount)")
             XCTAssertEqual(expectedNetAmount, result.netAmount, "net amount should be format to string - \(expectedNetAmount)")
@@ -100,9 +101,7 @@ class SimulatorResultPresenterTests: XCTestCase
             XCTAssertEqual(expectedMaturityTotalDays, result.maturityTotalDays, "maturity total days should be format to string - \(expectedMaturityTotalDays)")
             XCTAssertEqual(expectedMaturityDate, result.maturityDate, "maturity date should be format to string - \(expectedMaturityDate)")
             XCTAssertEqual(expectedRate, result.rate, "rate should be format to string - \(expectedRate)")
-            expect.fulfill()
         }
-        
-        waitForExpectations(timeout: 2.0)
+        wait(for: [expect], timeout: 2.0)
     }
 }

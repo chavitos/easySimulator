@@ -64,7 +64,7 @@ class SimulatorInputWorkerTests: XCTestCase
         sut.getSimulationResult(withInvestedAmount: 123.0, rate: 123, andMaturityDate: Date(), completionHandler: { (result, error) in
             expect.fulfill()
         })
-        waitForExpectations(timeout: 1.1)
+        wait(for: [expect], timeout: 1.1)
         
         XCTAssertTrue(simulatorNetworkSpy.simulatorNetworkCalled, "simulation result should ask API for a simulation")
     }

@@ -88,117 +88,137 @@ class SimulatorResultViewControllerTests: XCTestCase
         loadView()
         sut.displaySimulationResult(viewModel: viewModel)
         
-        let expectGrossAmount = expectation(description: "Wait for update gross amount label")
+        var expectGrossAmount:XCTestExpectation? = expectation(description: "Wait for update gross amount label")
         let observeGrossAmount = sut.grossAmountLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.grossAmount
             
             // Then
+            expectGrossAmount!.fulfill()
+            expectGrossAmount = nil
             XCTAssertEqual(expected, self.sut.grossAmountLabel.text!, "gross amount label should display formatted amount string - \(expected)")
-            expectGrossAmount.fulfill()
         }
         
-        let expectTaxes = expectation(description: "Wait for update taxes label")
+        var expectTaxes:XCTestExpectation? = expectation(description: "Wait for update taxes label")
         let observeTaxes = sut.taxesLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.taxesAmount + "(" + viewModel.displayResult.taxesRate + ")"
             
             // Then
+            expectTaxes!.fulfill()
+            expectTaxes = nil
             XCTAssertEqual(expected, self.sut.taxesLabel.text!, "taxes label should display formatted amount string - \(expected)")
-            expectTaxes.fulfill()
         }
         
-        let expectNetAmount = expectation(description: "Wait for update net amount label")
+        var expectNetAmount:XCTestExpectation? = expectation(description: "Wait for update net amount label")
         let observeNetAmount = sut.netAmountLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.netAmount
             
             // Then
+            expectNetAmount!.fulfill()
+            expectNetAmount = nil
             XCTAssertEqual(expected, self.sut.netAmountLabel.text!, "net amount label should display formatted amount string - \(expected)")
-            expectNetAmount.fulfill()
         }
         
-        let expectGrossAmountProfit = expectation(description: "Wait for update gross amount profit label")
+        var expectGrossAmountProfit:XCTestExpectation? = expectation(description: "Wait for update gross amount profit label")
         let observeGrossAmountProfit = sut.grossAmountProfitLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.grossAmountProfit
             
             // Then
+            expectGrossAmountProfit!.fulfill()
+            expectGrossAmountProfit = nil
             XCTAssertEqual(expected, self.sut.grossAmountProfitLabel.text!, "gross amount profit label should display formatted amount string - \(expected)")
-            expectGrossAmountProfit.fulfill()
         }
         
-        let expectAnnualGrossRateProfit = expectation(description: "Wait for update annual gross rate profit label")
+        var expectAnnualGrossRateProfit:XCTestExpectation? = expectation(description: "Wait for update annual gross rate profit label")
         let observeAnnualGrossRateProfit = sut.annualGrossRateProfitLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.annualGrossRateProfit
             
             // Then
+            expectAnnualGrossRateProfit!.fulfill()
+            expectAnnualGrossRateProfit = nil
             XCTAssertEqual(expected, self.sut.annualGrossRateProfitLabel.text!, "annual gross rate profit label should display formatted amount string - \(expected)")
-            expectAnnualGrossRateProfit.fulfill()
         }
         
-        let expectMonthlyGrossRateProfit = expectation(description: "Wait for update monthly gross rate profit label")
+        var expectMonthlyGrossRateProfit:XCTestExpectation? = expectation(description: "Wait for update monthly gross rate profit label")
         let observeMonthlyGrossRateProfit = sut.monthlyGrossRateProfitLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.monthlyGrossRateProfit
             
             // Then
+            expectMonthlyGrossRateProfit!.fulfill()
+            expectMonthlyGrossRateProfit = nil
             XCTAssertEqual(expected, self.sut.monthlyGrossRateProfitLabel.text!, "monthly gross rate profit label should display formatted amount string - \(expected)")
-            expectMonthlyGrossRateProfit.fulfill()
         }
         
-        let expectRateProfit = expectation(description: "Wait for update rate profit label")
+        var expectRateProfit:XCTestExpectation? = expectation(description: "Wait for update rate profit label")
         let observeRateProfit = sut.rateProfitLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.rateProfit
             
             // Then
+            expectRateProfit!.fulfill()
+            expectRateProfit = nil
             XCTAssertEqual(expected, self.sut.rateProfitLabel.text!, "rate profit label should display formatted amount string - \(expected)")
-            expectRateProfit.fulfill()
         }
         
-        let expectInvestedAmount = expectation(description: "Wait for update invested amount label")
+        var expectInvestedAmount:XCTestExpectation? = expectation(description: "Wait for update invested amount label")
         let observeInvestedAmount = sut.investedAmountLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.investedAmount
             
             // Then
+            expectInvestedAmount!.fulfill()
+            expectInvestedAmount = nil
             XCTAssertEqual(expected, self.sut.investedAmountLabel.text!, "invested amount label should display formatted amount string - \(expected)")
-            expectInvestedAmount.fulfill()
         }
         
-        let expectMaturityTotalDays = expectation(description: "Wait for update maturity total days label")
+        var expectMaturityTotalDays:XCTestExpectation? = expectation(description: "Wait for update maturity total days label")
         let observeMaturityTotalDays = sut.maturityTotalDaysLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.maturityTotalDays
             
             // Then
+            expectMaturityTotalDays!.fulfill()
+            expectMaturityTotalDays = nil
             XCTAssertEqual(expected, self.sut.maturityTotalDaysLabel.text!, "maturity total days label should display formatted amount string - \(expected)")
-            expectMaturityTotalDays.fulfill()
         }
         
-        let expectMaturityDate = expectation(description: "Wait for update maturity date label")
+        var expectMaturityDate:XCTestExpectation? = expectation(description: "Wait for update maturity date label")
         let observeMaturityDate = sut.maturityDateLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.maturityDate
             
             // Then
+            expectMaturityDate!.fulfill()
+            expectMaturityDate = nil
             XCTAssertEqual(expected, self.sut.maturityDateLabel.text!, "maturity date label should display formatted amount string - \(expected)")
-            expectMaturityDate.fulfill()
         }
         
-        let expectRate = expectation(description: "Wait for update rate label")
+        var expectRate:XCTestExpectation? = expectation(description: "Wait for update rate label")
         let observeRate = sut.rateLabel.observe(\.text, options: [.new]) { (label, value) in
             
             let expected = viewModel.displayResult.rate
             
             // Then
+            expectRate!.fulfill()
+            expectRate = nil
             XCTAssertEqual(expected, self.sut.rateLabel.text!, "rate label should display formatted amount string - \(expected)")
-            expectRate.fulfill()
         }
         
-        waitForExpectations(timeout: 5.0)
-       
+        wait(for: [expectGrossAmount!,
+                   expectTaxes!,
+                   expectNetAmount!,
+                   expectGrossAmountProfit!,
+                   expectAnnualGrossRateProfit!,
+                   expectMonthlyGrossRateProfit!,
+                   expectRateProfit!,
+                   expectInvestedAmount!,
+                   expectMaturityTotalDays!,
+                   expectMaturityDate!,
+                   expectRate!], timeout: 5.0)
     }
 }

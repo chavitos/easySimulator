@@ -123,7 +123,7 @@ class SimulatorInputViewControllerTests: XCTestCase
     {
         // Given
         let viewModel = SimulatorInput.FormatMaturityDate.ViewModel(formatedMaturityDate: "22/12/2022")
-        let expectDisplayFormattedMaturityDate = expectation(description: "maturity")
+        var expectDisplayFormattedMaturityDate:XCTestExpectation? = expectation(description: "maturity")
         
         // When
         loadView()
@@ -131,19 +131,22 @@ class SimulatorInputViewControllerTests: XCTestCase
     
         let observe = sut.maturityDateTextField.observe(\.text, options: [.new]) { (textField, value) in
             
-            // Then
-            XCTAssertEqual(viewModel.formatedMaturityDate, self.sut.maturityDateTextField.text, "maturity date text field should display formatted maturity date string - \(viewModel.formatedMaturityDate)")
-            expectDisplayFormattedMaturityDate.fulfill()
+            if value.newValue != "" {
+                // Then
+                expectDisplayFormattedMaturityDate!.fulfill()
+                expectDisplayFormattedMaturityDate = nil
+                XCTAssertEqual(viewModel.formatedMaturityDate, self.sut.maturityDateTextField.text, "maturity date text field should display formatted maturity date string - \(viewModel.formatedMaturityDate)")
+            }
         }
         
-        waitForExpectations(timeout: 5.0)
+        wait(for: [expectDisplayFormattedMaturityDate!], timeout: 5.0)
     }
     
     func testDisplayFormattedNumericFieldAmountShouldDisplayFormattedNumericStringInTextField()
     {
         // Given
         let viewModel = SimulatorInput.FormatNumericField.ViewModel(formatedValue: "R$12.000.00", tag: 100)
-        let expectDisplayFormattedAmount = expectation(description: "amount")
+        var expectDisplayFormattedAmount:XCTestExpectation? = expectation(description: "amount")
         
         // When
         loadView()
@@ -151,19 +154,20 @@ class SimulatorInputViewControllerTests: XCTestCase
         
         let observe = sut.investedAmountTextField.observe(\.text, options: [.new]) { (textField, value) in
            
-            // Then
-            XCTAssertEqual(viewModel.formatedValue, self.sut.investedAmountTextField.text!, "invested amount text field should display formatted amount string - \(viewModel.formatedValue)")
-            expectDisplayFormattedAmount.fulfill()
+            if value.newValue != "" {
+                // Then
+                expectDisplayFormattedAmount!.fulfill()
+                expectDisplayFormattedAmount = nil
+                XCTAssertEqual(viewModel.formatedValue, self.sut.investedAmountTextField.text!, "invested amount text field should display formatted amount string - \(viewModel.formatedValue)")
+            }
         }
-        
-        waitForExpectations(timeout: 5.0)
+        wait(for: [expectDisplayFormattedAmount!], timeout: 5.0)
     }
     
-    func testDisplayFormattedNumericFieldRateShouldDisplayFormattedNumericStringInTextField()
-    {
+    func testDisplayFormattedNumericFieldRateShouldDisplayFormattedNumericStringInTextField(){
         // Given
         let viewModel = SimulatorInput.FormatNumericField.ViewModel(formatedValue: "123", tag: 101)
-        let expectDisplayFormattedRate = expectation(description: "rate")
+        var expectDisplayFormattedRate:XCTestExpectation? = expectation(description: "rate")
         
         // When
         loadView()
@@ -171,11 +175,13 @@ class SimulatorInputViewControllerTests: XCTestCase
         
         let observe = sut.rateTextField.observe(\.text, options: [.new]) { (textField, value) in
             
-            // Then
-            XCTAssertEqual(viewModel.formatedValue, self.sut.rateTextField.text, "rate text field should display formatted rate string - \(viewModel.formatedValue)")
-            expectDisplayFormattedRate.fulfill()
+            if value.newValue != "" {
+                // Then
+                expectDisplayFormattedRate!.fulfill()
+                expectDisplayFormattedRate = nil
+                XCTAssertEqual(viewModel.formatedValue, self.sut.rateTextField.text, "rate text field should display formatted rate string - \(viewModel.formatedValue)")
+            }
         }
-        
-        waitForExpectations(timeout: 5.0)
+        wait(for: [expectDisplayFormattedRate!], timeout: 5.0)
     }
 }
