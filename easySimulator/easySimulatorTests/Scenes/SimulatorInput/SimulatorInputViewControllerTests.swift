@@ -70,15 +70,6 @@ class SimulatorInputViewControllerTests: XCTestCase
         }
     }
     
-    class SimulatorInputRouterSpy: SimulatorInputRouter {
-        
-        var routeToSimulatorResultCalled = false
-        
-        override func routeToSimulatorResult(segue: UIStoryboardSegue?) {
-            routeToSimulatorResultCalled = true
-        }
-    }
-    
     // MARK: Tests
     
     func testShouldSimulateWhenSimulateButtonIsTapped()
@@ -132,7 +123,7 @@ class SimulatorInputViewControllerTests: XCTestCase
     {
         // Given
         let viewModel = SimulatorInput.FormatMaturityDate.ViewModel(formatedMaturityDate: "22/12/2022")
-        let expect = expectation(description: "Wait for update text field")
+        let expectDisplayFormattedMaturityDate = expectation(description: "maturity")
         
         // When
         loadView()
@@ -142,7 +133,7 @@ class SimulatorInputViewControllerTests: XCTestCase
             
             // Then
             XCTAssertEqual(viewModel.formatedMaturityDate, self.sut.maturityDateTextField.text, "maturity date text field should display formatted maturity date string - \(viewModel.formatedMaturityDate)")
-            expect.fulfill()
+            expectDisplayFormattedMaturityDate.fulfill()
         }
         
         waitForExpectations(timeout: 5.0)
@@ -152,7 +143,7 @@ class SimulatorInputViewControllerTests: XCTestCase
     {
         // Given
         let viewModel = SimulatorInput.FormatNumericField.ViewModel(formatedValue: "R$12.000.00", tag: 100)
-        let expect = expectation(description: "Wait for update text field")
+        let expectDisplayFormattedAmount = expectation(description: "amount")
         
         // When
         loadView()
@@ -162,7 +153,7 @@ class SimulatorInputViewControllerTests: XCTestCase
            
             // Then
             XCTAssertEqual(viewModel.formatedValue, self.sut.investedAmountTextField.text!, "invested amount text field should display formatted amount string - \(viewModel.formatedValue)")
-            expect.fulfill()
+            expectDisplayFormattedAmount.fulfill()
         }
         
         waitForExpectations(timeout: 5.0)
@@ -172,7 +163,7 @@ class SimulatorInputViewControllerTests: XCTestCase
     {
         // Given
         let viewModel = SimulatorInput.FormatNumericField.ViewModel(formatedValue: "123", tag: 101)
-        let expect = expectation(description: "Wait for update text field")
+        let expectDisplayFormattedRate = expectation(description: "rate")
         
         // When
         loadView()
@@ -182,7 +173,7 @@ class SimulatorInputViewControllerTests: XCTestCase
             
             // Then
             XCTAssertEqual(viewModel.formatedValue, self.sut.rateTextField.text, "rate text field should display formatted rate string - \(viewModel.formatedValue)")
-            expect.fulfill()
+            expectDisplayFormattedRate.fulfill()
         }
         
         waitForExpectations(timeout: 5.0)

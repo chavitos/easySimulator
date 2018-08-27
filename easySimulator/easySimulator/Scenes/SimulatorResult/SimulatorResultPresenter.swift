@@ -14,7 +14,7 @@ import UIKit
 
 protocol SimulatorResultPresentationLogic
 {
-    func presentSomething(response: SimulatorResult.GetSimulationResult.Response)
+    func presentSimulationResult(response: SimulatorResult.GetSimulationResult.Response)
 }
 
 class SimulatorResultPresenter: SimulatorResultPresentationLogic
@@ -23,7 +23,7 @@ class SimulatorResultPresenter: SimulatorResultPresentationLogic
     
     // MARK: Do something
     
-    func presentSomething(response: SimulatorResult.GetSimulationResult.Response)
+    func presentSimulationResult(response: SimulatorResult.GetSimulationResult.Response)
     {
         
         getDisplaySimulationResult(ofSimulationResult: response.simulationResult) { (displayResult) in
@@ -32,7 +32,7 @@ class SimulatorResultPresenter: SimulatorResultPresentationLogic
         }
     }
     
-    private func getDisplaySimulationResult(ofSimulationResult simulationResult:SimulationResult, completionHandler:@escaping ((DisplaySimulationResult) -> Void)) {
+    func getDisplaySimulationResult(ofSimulationResult simulationResult:SimulationResult, completionHandler:@escaping ((DisplaySimulationResult) -> Void)) {
         
         DispatchQueue.global(qos: .background).async {
             

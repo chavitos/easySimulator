@@ -192,7 +192,7 @@
         <!--Simulator Result View Controller-->
         <scene sceneID="btf-p0-ziV">
             <objects>
-                <viewController id="rAN-13-CdX" customClass="SimulatorResultViewController" customModule="easySimulator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SimulatorResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rAN-13-CdX" customClass="SimulatorResultViewController" customModule="easySimulator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zcv-dP-srE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

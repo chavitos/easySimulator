@@ -25,6 +25,9 @@
 		925C4CBD21335653000B6761 /* SimulatorInputWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CB921335653000B6761 /* SimulatorInputWorkerTests.swift */; };
 		925C4CBE21335653000B6761 /* SimulatorInputPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CBA21335653000B6761 /* SimulatorInputPresenterTests.swift */; };
 		925C4CC021335EA7000B6761 /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CBF21335EA7000B6761 /* Seeds.swift */; };
+		925C4CC82133A02B000B6761 /* SimulatorResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CC42133A02B000B6761 /* SimulatorResultViewControllerTests.swift */; };
+		925C4CC92133A02B000B6761 /* SimulatorResultInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CC52133A02B000B6761 /* SimulatorResultInteractorTests.swift */; };
+		925C4CCB2133A02B000B6761 /* SimulatorResultPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925C4CC72133A02B000B6761 /* SimulatorResultPresenterTests.swift */; };
 		AE09356DCCFA55F5741DC223 /* Pods_easySimulatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75668A8CCE472A81F44F88C4 /* Pods_easySimulatorUITests.framework */; };
 		E9E6D5D2212E096E003C4DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6D5D1212E096E003C4DF6 /* AppDelegate.swift */; };
 		E9E6D5D7212E096E003C4DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9E6D5D5212E096E003C4DF6 /* Main.storyboard */; };
@@ -83,6 +86,9 @@
 		925C4CB921335653000B6761 /* SimulatorInputWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorInputWorkerTests.swift; sourceTree = "<group>"; };
 		925C4CBA21335653000B6761 /* SimulatorInputPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorInputPresenterTests.swift; sourceTree = "<group>"; };
 		925C4CBF21335EA7000B6761 /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
+		925C4CC42133A02B000B6761 /* SimulatorResultViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultViewControllerTests.swift; sourceTree = "<group>"; };
+		925C4CC52133A02B000B6761 /* SimulatorResultInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultInteractorTests.swift; sourceTree = "<group>"; };
+		925C4CC72133A02B000B6761 /* SimulatorResultPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorResultPresenterTests.swift; sourceTree = "<group>"; };
 		B0F096CDD52A4146D1822C2A /* Pods-easySimulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-easySimulator.release.xcconfig"; path = "Pods/Target Support Files/Pods-easySimulator/Pods-easySimulator.release.xcconfig"; sourceTree = "<group>"; };
 		C3968B367A16BE42A549A4A5 /* Pods_easySimulatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_easySimulatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43FFD607A307D1B937DAC3B /* Pods_easySimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_easySimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				925C4CB621335637000B6761 /* SimulatorInput */,
+				925C4CC32133A00E000B6761 /* SimulatorResult */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -216,6 +223,16 @@
 				925C4CBA21335653000B6761 /* SimulatorInputPresenterTests.swift */,
 			);
 			path = SimulatorInput;
+			sourceTree = "<group>";
+		};
+		925C4CC32133A00E000B6761 /* SimulatorResult */ = {
+			isa = PBXGroup;
+			children = (
+				925C4CC42133A02B000B6761 /* SimulatorResultViewControllerTests.swift */,
+				925C4CC52133A02B000B6761 /* SimulatorResultInteractorTests.swift */,
+				925C4CC72133A02B000B6761 /* SimulatorResultPresenterTests.swift */,
+			);
+			path = SimulatorResult;
 			sourceTree = "<group>";
 		};
 		A97657CBCDBFA0964C78E489 /* Pods */ = {
@@ -562,7 +579,10 @@
 			files = (
 				925C4CBC21335653000B6761 /* SimulatorInputInteractorTests.swift in Sources */,
 				925C4CBB21335653000B6761 /* SimulatorInputViewControllerTests.swift in Sources */,
+				925C4CC92133A02B000B6761 /* SimulatorResultInteractorTests.swift in Sources */,
+				925C4CC82133A02B000B6761 /* SimulatorResultViewControllerTests.swift in Sources */,
 				925C4CC021335EA7000B6761 /* Seeds.swift in Sources */,
+				925C4CCB2133A02B000B6761 /* SimulatorResultPresenterTests.swift in Sources */,
 				925C4CBE21335653000B6761 /* SimulatorInputPresenterTests.swift in Sources */,
 				925C4CBD21335653000B6761 /* SimulatorInputWorkerTests.swift in Sources */,
 			);

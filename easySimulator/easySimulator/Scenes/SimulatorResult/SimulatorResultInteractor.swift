@@ -33,6 +33,6 @@ class SimulatorResultInteractor: SimulatorResultBusinessLogic, SimulatorResultDa
     func getSimulationResult()
     {
         let response = SimulatorResult.GetSimulationResult.Response(simulationResult: simulationResult!)
-        presenter?.presentSomething(response: response)
+        presenter?.presentSimulationResult(response: response)
     }
 }
